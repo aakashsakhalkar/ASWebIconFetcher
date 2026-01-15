@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">ASWebicon</string>
+    <string name="as_web_icon_fetcher">AS Web Icon Fetcher</string>
+    <string name="enter_a_website_url_to_fetch_its_favicon">Enter a website URL to fetch its favicon</string>
+    <string name="https_example_com">https://example.com</string>
+    <string name="fetch_icon">Fetch Icon</string>
+    <string name="website_icon">Website Icon</string>
+    <string name="domain">Domain</string>
+    <string name="source">Source</string>
+</resources>
