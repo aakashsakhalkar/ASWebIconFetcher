@@ -40,5 +40,5 @@ dependencies {
     androidTestImplementation libs.espresso.core
       implementation libs.glide
 //        implementation(project(":ASWebIconFetcher"))
-    implementation 'com.github.aakashsakhalkar:ASWebIconFetcher:v1.0.0'
+    implementation 'com.github.aakashsakhalkar:ASWebIconFetcher:v1.0.1'
 }
