@@ -1,80 +1,111 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF"
-    android:orientation="vertical"
-    android:padding="20dp"
+    android:background="#F3F6FB"
     tools:context=".MainActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:orientation="vertical">
-        <!-- Title -->
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/as_web_icon_fetcher"
-            android:textColor="#111111"
-            android:textSize="20sp"
-            android:textStyle="bold" />
+        android:orientation="vertical"
+        android:padding="20dp">
 
-        <TextView
+        <!-- Header -->
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:layout_marginBottom="16dp"
-            android:text="@string/enter_a_website_url_to_fetch_its_favicon"
-            android:textColor="#666666"
-            android:textSize="14sp" />
+            android:background="#1E88E5"
+            android:padding="18dp"
+            android:orientation="vertical">
 
-        <!-- Input -->
-        <EditText
-            android:id="@+id/etUrl"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@android:drawable/edit_text"
-            android:hint="@string/https_example_com"
-            android:importantForAutofill="no"
-            android:inputType="textUri"
-            android:padding="12dp"
-            android:textSize="15sp"
-            tools:ignore="TextContrastCheck,VisualLintTextFieldSize" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="AS Web Icon Fetcher"
+                android:textColor="#FFFFFF"
+                android:textSize="22sp"
+                android:textStyle="bold"/>
 
-        <!-- Button -->
-        <Button
-            android:id="@+id/btnFetch"
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Test favicon API filters visually"
+                android:textColor="#E3F2FD"
+                android:textSize="14sp"
+                android:layout_marginTop="4dp"/>
+        </LinearLayout>
+
+        <!-- Input Card -->
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:padding="12dp"
-            android:text="@string/fetch_icon"
-            tools:ignore="VisualLintButtonSize" />
+            android:orientation="vertical"
+            android:background="#FFFFFF"
+            android:padding="16dp"
+            android:layout_marginTop="16dp">
+
+            <EditText
+                android:id="@+id/etUrl"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="https://example.com"
+                android:padding="14dp"/>
+
+            <Spinner
+                android:id="@+id/spinnerMode"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"/>
+
+            <EditText
+                android:id="@+id/etInclude"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Include formats (png,svg,jpg)"
+                android:layout_marginTop="10dp"
+                android:padding="14dp"
+                android:visibility="gone"/>
+
+            <EditText
+                android:id="@+id/etExclude"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Exclude formats (ico,gif)"
+                android:layout_marginTop="10dp"
+                android:padding="14dp"
+                android:visibility="gone"/>
+
+            <Button
+                android:id="@+id/btnFetch"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Fetch Icon"
+                android:layout_marginTop="14dp"
+                android:backgroundTint="#1E88E5"
+                android:textColor="#FFFFFF"/>
+        </LinearLayout>
 
         <!-- Result Card -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:background="#F6F7F9"
+            android:background="#FFFFFF"
             android:orientation="horizontal"
             android:padding="16dp">
 
             <ImageView
                 android:id="@+id/ivIcon"
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                android:contentDescription="@string/website_icon"
-                android:src="@android:drawable/ic_menu_report_image"
-                tools:ignore="ImageContrastCheck" />
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:src="@android:drawable/ic_menu_report_image" />
 
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="12dp"
+                android:layout_marginStart="14dp"
                 android:layout_weight="1"
                 android:orientation="vertical">
 
@@ -82,40 +113,163 @@
                     android:id="@+id/tvDomain"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/domain"
-                    android:textColor="#111111"
+                    android:textColor="#0D47A1"
+                    android:textSize="16sp"
                     android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/tvSource"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/source"
-                    android:textColor="#666666"
-                    android:textSize="13sp" />
+                    android:textColor="#333333"
+                    android:textSize="13sp"
+                    android:layout_marginTop="2dp" />
+
+                <TextView
+                    android:id="@+id/tvFavicon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#333333"
+                    android:textSize="12sp"
+                    android:layout_marginTop="2dp" />
 
                 <TextView
                     android:id="@+id/tvError"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text=""
-                    android:textColor="#C62828"
                     android:textSize="13sp"
+                    android:layout_marginTop="6dp"
                     android:visibility="gone" />
             </LinearLayout>
-
         </LinearLayout>
+
+        <ProgressBar
+            android:id="@+id/progressbar"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:visibility="gone" />
+
     </LinearLayout>
-
-    <ProgressBar
-        android:id="@+id/progressbar"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:layout_centerInParent="true"
-        android:indeterminateTint="@android:color/holo_red_dark"
-        android:visibility="gone" />
-</RelativeLayout>
+</ScrollView>
 
 
 
->
+    <!--<?xml version="1.0" encoding="utf-8"?>-->
+<!--<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--    xmlns:tools="http://schemas.android.com/tools"-->
+<!--    android:layout_width="match_parent"-->
+<!--    android:layout_height="match_parent"-->
+<!--    android:background="#FFFFFF"-->
+<!--    android:orientation="vertical"-->
+<!--    android:padding="20dp"-->
+<!--    tools:context=".MainActivity">-->
+
+<!--    <LinearLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_centerInParent="true"-->
+<!--        android:orientation="vertical">-->
+<!--        &lt;!&ndash; Title &ndash;&gt;-->
+<!--        <TextView-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="@string/as_web_icon_fetcher"-->
+<!--            android:textColor="#111111"-->
+<!--            android:textSize="20sp"-->
+<!--            android:textStyle="bold" />-->
+
+<!--        <TextView-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginTop="4dp"-->
+<!--            android:layout_marginBottom="16dp"-->
+<!--            android:text="@string/enter_a_website_url_to_fetch_its_favicon"-->
+<!--            android:textColor="#666666"-->
+<!--            android:textSize="14sp" />-->
+
+<!--        &lt;!&ndash; Input &ndash;&gt;-->
+<!--        <EditText-->
+<!--            android:id="@+id/etUrl"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:background="@android:drawable/edit_text"-->
+<!--            android:hint="@string/https_example_com"-->
+<!--            android:importantForAutofill="no"-->
+<!--            android:inputType="textUri"-->
+<!--            android:padding="12dp"-->
+<!--            android:textSize="15sp"-->
+<!--            tools:ignore="TextContrastCheck,VisualLintTextFieldSize" />-->
+
+<!--        &lt;!&ndash; Button &ndash;&gt;-->
+<!--        <Button-->
+<!--            android:id="@+id/btnFetch"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginTop="12dp"-->
+<!--            android:padding="12dp"-->
+<!--            android:text="@string/fetch_icon"-->
+<!--            tools:ignore="VisualLintButtonSize" />-->
+
+<!--        &lt;!&ndash; Result Card &ndash;&gt;-->
+<!--        <LinearLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginTop="20dp"-->
+<!--            android:background="#F6F7F9"-->
+<!--            android:orientation="horizontal"-->
+<!--            android:padding="16dp">-->
+
+<!--            <ImageView-->
+<!--                android:id="@+id/ivIcon"-->
+<!--                android:layout_width="48dp"-->
+<!--                android:layout_height="48dp"-->
+<!--                android:contentDescription="@string/website_icon"-->
+<!--                android:src="@android:drawable/ic_menu_report_image"-->
+<!--                tools:ignore="ImageContrastCheck" />-->
+
+<!--            <LinearLayout-->
+<!--                android:layout_width="0dp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginStart="12dp"-->
+<!--                android:layout_weight="1"-->
+<!--                android:orientation="vertical">-->
+
+<!--                <TextView-->
+<!--                    android:id="@+id/tvDomain"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="@string/domain"-->
+<!--                    android:textColor="#111111"-->
+<!--                    android:textStyle="bold" />-->
+
+<!--                <TextView-->
+<!--                    android:id="@+id/tvSource"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="@string/source"-->
+<!--                    android:textColor="#666666"-->
+<!--                    android:textSize="13sp" />-->
+
+<!--                <TextView-->
+<!--                    android:id="@+id/tvError"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text=""-->
+<!--                    android:textColor="#C62828"-->
+<!--                    android:textSize="13sp"-->
+<!--                    android:visibility="gone" />-->
+<!--            </LinearLayout>-->
+
+<!--        </LinearLayout>-->
+<!--    </LinearLayout>-->
+
+<!--    <ProgressBar-->
+<!--        android:id="@+id/progressbar"-->
+<!--        android:layout_width="200dp"-->
+<!--        android:layout_height="200dp"-->
+<!--        android:layout_centerInParent="true"-->
+<!--        android:indeterminateTint="@android:color/holo_red_dark"-->
+<!--        android:visibility="gone" />-->
+<!--</RelativeLayout>-->
