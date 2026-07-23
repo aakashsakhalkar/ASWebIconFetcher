@@ -64,7 +64,7 @@ dependencyResolutionManagement {
 
 ```gradle
 dependencies {
-    implementation 'com.github.aakashsakhalkar:ASWebIconFetcher:v1.0.0'
+    implementation 'com.github.aakashsakhalkar:ASWebIconFetcher:v1.0.2'
 }
 ```
 
@@ -72,7 +72,7 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("com.github.aakashsakhalkar:ASWebIconFetcher:v1.0.0")
+    implementation("com.github.aakashsakhalkar:ASWebIconFetcher:v1.0.2")
 }
 ```
 
@@ -138,7 +138,7 @@ The backend API always returns a favicon URL.
 
 ## Versioning
 
-Current version: **v1.0.0**
+Current version: **v1.0.2**
 
 ---
 
